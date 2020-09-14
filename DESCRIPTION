@@ -1,4 +1,4 @@
-Package: Polychoric
+Package: Turbofuns
 Type: Package
 Title: Computing polychoric correlations and their asymptotic covariance matrix
 Version: 1.0.0
