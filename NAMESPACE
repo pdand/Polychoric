@@ -2,4 +2,4 @@
 
 export(PolychoricRM)
 importFrom(Rcpp,sourceCpp)
-useDynLib(Polychoric, .registration = TRUE)
+useDynLib(Turbofuns, .registration = TRUE)
