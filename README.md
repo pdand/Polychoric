@@ -1,6 +1,6 @@
-# Polychoric
+# Turbofuns
 
-The goal of Polychoric is to estimate polychoric correlations and their asymptotic covariance matrix (ACM).
+The goal of Turbofuns is to estimate polychoric correlations and their asymptotic covariance matrix (ACM).
 
 
 
@@ -8,7 +8,7 @@ This package can be installed directly from GitHub:
 
 install.packages("devtools")
 
-devtools::install_github("pdand/Polychoric")
+devtools::install_github("pdand/Turbofuns")
 
 
 
