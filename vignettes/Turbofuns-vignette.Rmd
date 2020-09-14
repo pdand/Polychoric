@@ -1,5 +1,5 @@
 ---
-title: "PolychoricRM"
+title: "Turbofuns"
 author: "Guangjian Zhang, Ge Jiang, Lauren Trichtinger and Dayoung Lee"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
