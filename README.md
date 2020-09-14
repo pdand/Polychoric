@@ -7,6 +7,7 @@ The goal of Polychoric is to estimate polychoric correlations and their asymptot
 This package can be installed directly from GitHub:
 
 install.packages("devtools")
+
 devtools::install_github("pdand/Polychoric")
 
 
