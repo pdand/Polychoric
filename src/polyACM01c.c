@@ -49,7 +49,7 @@ void F77_NAME(polyR_f) (int *ncase, int *nvar, int *IAdjust, int *NCore, int *iR
 
 
 
-void R_init_Polychoric(DllInfo *dll) {
+void R_init_Turbofuns(DllInfo *dll) {
   R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
   }
