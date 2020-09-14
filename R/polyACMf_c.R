@@ -1,4 +1,4 @@
-#'@useDynLib Turbofunns, .registration = TRUE
+#'@useDynLib Turbofuns, .registration = TRUE
 #'@importFrom Rcpp sourceCpp
 #'@export PolychoricRM
 PolychoricRM <- function (iRaw=NULL, IAdjust=0, NCore=2, estimate.acm=FALSE) {
