@@ -1,0 +1,50 @@
+---
+title: "PolychoricRM"
+author: "Guangjian Zhang, Ge Jiang, Lauren Trichtinger and Dayoung Lee"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{EFAutilities}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+# Summary 
+This package is to estimate polychoric correlations and their asymptotic covariance matrix (ACM). In order to accomodate a model with ordinal variables, researchers often estimate the model with polychoric correlations opposed to Pearson correlations. This method requires the ACM of these polychoric correlations which can be computationally intensively to compute. This package provides a function that allows researchers a computationally efficient why  to calculate the polychoric correlations and their ACM. The main implementation is done in Fortran 95 and the Fortran code is linked to R through wrapper functions. It also utilizies multiple-core (multiple-thread) cap
+
+# Functions
+
+**PolychoricRM()**  
+The function `PolychoricRM()` estimates polychoric correlations and their asymptotic covariance matrix (ACM). 
+
+
+
+# Data Description
+
+This package includes a data set of 228 undergraduate students self ratings on the 44 items in the Big Five Inventory (John, Donahue, & Kentle, 1991). It is part of a study on personality and relationship satisfaction (Luo, 2005). The ratings are five-point Likert items: disagree strongly (1), disagree a little (2), neither agree nor disagree (3), agree a little (4), and agree strongly (5). The data are presented as a n by p matrix of ordinal variables, where n is the number of participants (228) and p is the number of manifest variables (44).
+
+
+
+## Example 
+In this example, we illustrate how to obtain the polychoric correlation matrix and its asymptotic covariance matrix using the `PolychoricRM` function.  We will use the data `BFI228` which contains 5-point Likert variables. We estimate polychoric correlations from the Likert variable and specify the asymptotic covariance matrix of polychoric correlations be computed. We also specify 5 threads be utilized and add 1/(nc*nr) to all cells where nc and nr is the number of columns and rows of the contingency table respectively.
+```{r}
+#Examples using the data sets included in the packages:
+library(Polychoric)
+  
+data("BFI228")    # Big-five inventory (N = 228)
+
+#For ordinal data, estimating the polychoric correlation and its ACM 
+#with 5 cores and 1/(nc*nr) added to all cells
+
+polyACM = PolychoricRM(BFI228,NCore=5, IAdjust=1, estimate.acm=T)
+
+polyACM$threshold
+polyACM$correlation
+polyACM$flag
+polyACM$ACM
+
+```
+The output displays the threshold estimates, polychoric correlation, flag matrix for information on estimating the polychoric correlation correlations from the contingency table, and the asymptotic covariance matrix.
+
+## References
+
+John, O. P., Donahue, E. M., & Kentle, R. L. (1991). The Big Five Inventory – versions 4a and 54. Berkeley, CA: University of California, Berkeley, Institute of Personality and Social Research. \doi: 10.1037/t07550-000  
